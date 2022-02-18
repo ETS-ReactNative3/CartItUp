@@ -1,10 +1,10 @@
 import React from "react";
-import { Main } from "./screens/MainScreen/Main";
+import MainLoadingScreen from "./screens/LoadingScreen/Screen/MainLoadingScreen";
 
 const App = () => {
   return (
     <>
-      <Main />
+      <MainLoadingScreen />
     </>
   );
 };
