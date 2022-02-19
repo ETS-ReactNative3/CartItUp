@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Animated, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import {
   LoginScreenMainView,
   BackArrowContainer,
@@ -16,7 +16,6 @@ import {
 import TextInput from "react-native-text-input-interactive";
 
 const LoginScreen = ({ navigation }) => {
-  const [ animatedText ] = Animated.Value(0);
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
 
@@ -25,7 +24,6 @@ const LoginScreen = ({ navigation }) => {
   };
   const GoToSignUpScreen = () => {
     navigation.navigate("SignUpScreen");
-    Animated.timing()
   };
   return (
     <LoginScreenMainView>

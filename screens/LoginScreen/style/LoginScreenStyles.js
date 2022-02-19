@@ -76,7 +76,6 @@ font-family: "Segoe-UI";
 font-weight: bold;
 font-size: 16px;
 padding-left: 10px;
-opacity: ${ props => props.opacity  }
 `
 
 
