@@ -44,6 +44,7 @@ const LoginScreen = ({ navigation }) => {
           placeholder="Password"
           onChangeText={(e) => setPassword(e)}
           value={password}
+          secureTextEntry={true}
         />
         <Spacer />
         <TouchableOpacity>
