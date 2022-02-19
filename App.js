@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MainLoadingScreen from "./screens/LoadingScreen/Screen/MainLoadingScreen";
 import { Text, View } from "react-native";
-import { Main } from "./screens/MainScreen/Main";
+import { Main } from "./screens/MainScreen/screen/Main";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LoginScreen from "./screens/LoginScreen/screen/LoginScreen";

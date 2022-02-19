@@ -8,19 +8,16 @@ import {
   MainButton,
   CenteredText,
   StyledSignUpText,
-} from "./MainStyles";
+} from "../style/MainStyles";
 import { Image, TouchableOpacity } from "react-native";
 
-export const Main = ({navigation}) => {
-
-const GoToLoginScreen = () =>{
-  navigation.navigate("LoginScreen");
-}
-const GoToSignUpScreen = () =>{
-  navigation.navigate("SignUpScreen");
-}
-
-
+export const Main = ({ navigation }) => {
+  const GoToLoginScreen = () => {
+    navigation.navigate("LoginScreen");
+  };
+  const GoToSignUpScreen = () => {
+    navigation.navigate("SignUpScreen");
+  };
 
   return (
     <MainImproved>
@@ -29,7 +26,7 @@ const GoToSignUpScreen = () =>{
       </StyledText>
       <StyledTextPadded> Explore Us </StyledTextPadded>
       <MainImgContainer>
-        <Image source={require("./assets/images/Image.png")} />
+        <Image source={require("../assets/images/Image.png")} />
       </MainImgContainer>
       <TouchableOpacity onPress={GoToLoginScreen}>
         <MainButton

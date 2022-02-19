@@ -13,14 +13,14 @@ export const StyledText = styled.Text`
 font-family: 'Segoe-UI';
 font-size: 20px;
 font-weight: 100;
-color:black;
+color:#323232;
 
 `
 export const StyledTextBolded = styled.Text`
 font-family: 'Segoe-UI';
 font-size: 22px;
 font-weight: bold;
-color:black;
+color:#323232;
 `
 
 export const StyledTextPadded = styled.Text`
@@ -28,7 +28,7 @@ font-family: 'Segoe-UI';
 font-size: 20px;
 font-weight: 100;
 padding-top: 10px;
-color:black;
+color:#323232;
 `
 
 export const MainImgContainer = styled.View` 
@@ -46,6 +46,8 @@ margin-bottom:20px;
 `
 export const CenteredText = styled.Text` 
 text-align:center;
+font-family: "Segoe-UI";
+
 color:#ffffff;
 font-size: 16px;
 `
@@ -56,5 +58,5 @@ font-family: 'Segoe-UI';
 font-size: 16px;
 font-weight: 100;
 padding-bottom: 40px;
-color:black;
+color:#323232;
 `
