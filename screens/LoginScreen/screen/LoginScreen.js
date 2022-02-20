@@ -34,10 +34,7 @@ const LoginScreen = ({ navigation }) => {
       </TouchableOpacity>
       <LoginText> Login </LoginText>
       <ModifiedInputContainer>
-        <TextInput
-          onChangeText={(e) => setEmail(e)}
-          value={email}
-        />
+        <TextInput onChangeText={(e) => setEmail(e)} value={email} />
         <Spacer />
         <TextInput
           placeholder="Password"
@@ -57,12 +54,8 @@ const LoginScreen = ({ navigation }) => {
         </TouchableOpacity>
       </ModifiedInputContainer>
       <EndingViewContainer>
-        <EndingText>         
-          Don't Have an Account  
-        </EndingText>
-            <EndingSignUpLink onPress={GoToSignUpScreen}>             
-             Sign Up
-            </EndingSignUpLink>
+        <EndingText>Don't Have an Account</EndingText>
+        <EndingSignUpLink onPress={GoToSignUpScreen}>Sign Up</EndingSignUpLink>
       </EndingViewContainer>
     </LoginScreenMainView>
   );
