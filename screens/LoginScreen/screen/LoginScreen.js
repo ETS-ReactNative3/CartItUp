@@ -35,7 +35,6 @@ const LoginScreen = ({ navigation }) => {
       <LoginText> Login </LoginText>
       <ModifiedInputContainer>
         <TextInput
-          style={{ marginBottom: 50 }}
           onChangeText={(e) => setEmail(e)}
           value={email}
         />
@@ -59,7 +58,7 @@ const LoginScreen = ({ navigation }) => {
       </ModifiedInputContainer>
       <EndingViewContainer>
         <EndingText>         
-          Already Have an Account  
+          Don't Have an Account  
         </EndingText>
             <EndingSignUpLink onPress={GoToSignUpScreen}>             
              Sign Up
