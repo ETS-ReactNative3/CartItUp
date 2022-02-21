@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, ToastAndroid } from "react-native";
 import {
   LoginScreenMainView,
   BackArrowContainer,
@@ -12,8 +12,11 @@ import {
   EndingText,
   EndingSignUpLink,
   EndingViewContainer,
+  ErrorText,
+  ErrorContainer,
 } from "../style/LoginScreenStyles";
 import TextInput from "react-native-text-input-interactive";
+import auth from "@react-native-firebase/auth";
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
@@ -25,6 +28,14 @@ const LoginScreen = ({ navigation }) => {
   const GoToSignUpScreen = () => {
     navigation.navigate("SignUpScreen");
   };
+
+  const LogIn = () => {
+    if (email && password) {
+      auth()
+        .signInWithEmailAndPassword(email, password)
+        .catch((err) => ToastAndroid(` An Error Occured ${err.code} `, 2000));
+    }
+  };
   return (
     <LoginScreenMainView>
       <TouchableOpacity onPress={GoToMainScreen}>
@@ -35,6 +46,10 @@ const LoginScreen = ({ navigation }) => {
       <LoginText> Login </LoginText>
       <ModifiedInputContainer>
         <TextInput onChangeText={(e) => setEmail(e)} value={email} />
+        <ErrorContainer>
+          {!email && <ErrorText> &#9888; Please Enter Your Email </ErrorText>}
+        </ErrorContainer>
+
         <Spacer />
         <TextInput
           placeholder="Password"
@@ -42,8 +57,14 @@ const LoginScreen = ({ navigation }) => {
           value={password}
           secureTextEntry={true}
         />
+        <ErrorContainer>
+          {!password && (
+            <ErrorText> &#9888; Please Enter Your Password </ErrorText>
+          )}
+        </ErrorContainer>
+
         <Spacer />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={LogIn}>
           <MainButton
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}

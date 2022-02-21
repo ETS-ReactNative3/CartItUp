@@ -78,4 +78,15 @@ font-size: 16px;
 padding-left: 10px;
 `
 
+export const ErrorContainer = styled.View` 
+width:100%;
+padding-left:30px;
+`
+
+export const ErrorText = styled.Text` 
+color:red;
+font-size: 12px;
+font-family: "Segoe-UI";
+`
+
 
