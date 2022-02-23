@@ -100,7 +100,7 @@ const SignUpScreen = ({ navigation }) => {
             {isLoading ? (
               <ActivityIndicator color={"white"} animating={true} />
             ) : (
-              <CenteredText> Log In </CenteredText>
+              <CenteredText> Sign Up </CenteredText>
             )}
           </MainButton>
         </TouchableOpacity>
