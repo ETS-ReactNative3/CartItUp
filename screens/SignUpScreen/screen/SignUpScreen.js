@@ -39,15 +39,20 @@ const SignUpScreen = ({ navigation }) => {
 
   const createUser = () => {
     if (email && name && password && password.length > 6) {
-      setIsLoading(true)
+      setIsLoading(true);
       auth()
         .createUserWithEmailAndPassword(email, password)
         .then(() => auth().currentUser.updateProfile({ displayName: name }))
         .then(() => setIsLoading(false))
-        .catch((err) =>
-          ToastAndroid.show(` An Error Occured! Please Check ${err.code}`, 2000)
-        );
+        .catch((err) => {
+          setIsLoading(false);
+          ToastAndroid.show(
+            ` An Error Occured! Please Check ${err.code}`,
+            2000
+          );
+        });
     } else {
+      setIsLoading(false);
       ToastAndroid.show(
         " An Error Occured! Email or Password is incorrect or empty or weak ",
         2000

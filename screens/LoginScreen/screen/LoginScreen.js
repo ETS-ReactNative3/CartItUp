@@ -38,15 +38,17 @@ const LoginScreen = ({ navigation }) => {
   };
 
   const LogIn = () => {
-    setIsLoading(true)
+    setIsLoading(true);
     if (email && password) {
       auth()
         .signInWithEmailAndPassword(email, password)
         .then(() => setIsLoading(false))
-        .catch((err) =>
-          ToastAndroid.show(` An Error Occured ${err.code} `, 2000)
-        );
+        .catch((err) => {
+          setIsLoading(false);
+          ToastAndroid.show(` An Error Occured ${err.code} `, 2000);
+        });
     } else {
+      setIsLoading(false);
       ToastAndroid.show(`please Enter Your Email and Password `, 2000);
     }
   };
