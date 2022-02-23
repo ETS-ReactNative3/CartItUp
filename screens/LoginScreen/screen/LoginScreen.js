@@ -1,9 +1,13 @@
 import React, { useState } from "react";
-import { TouchableOpacity, ToastAndroid } from "react-native";
+import {
+  TouchableOpacity,
+  ToastAndroid,
+  ActivityIndicator,
+} from "react-native";
 import {
   LoginScreenMainView,
   BackArrowContainer,
-  BackArrow,
+  RefinedImage,
   LoginText,
   ModifiedInputContainer,
   MainButton,
@@ -21,26 +25,36 @@ import auth from "@react-native-firebase/auth";
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
   const [password, setPassword] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const GoToMainScreen = () => {
+    setIsLoading(false);
     navigation.navigate("Main");
   };
   const GoToSignUpScreen = () => {
+    setIsLoading(false);
+
     navigation.navigate("SignUpScreen");
   };
 
   const LogIn = () => {
+    setIsLoading(true)
     if (email && password) {
       auth()
         .signInWithEmailAndPassword(email, password)
-        .catch((err) => ToastAndroid(` An Error Occured ${err.code} `, 2000));
+        .then(() => setIsLoading(false))
+        .catch((err) =>
+          ToastAndroid.show(` An Error Occured ${err.code} `, 2000)
+        );
+    } else {
+      ToastAndroid.show(`please Enter Your Email and Password `, 2000);
     }
   };
   return (
     <LoginScreenMainView>
       <TouchableOpacity onPress={GoToMainScreen}>
         <BackArrowContainer>
-          <BackArrow>&#8592;</BackArrow>
+          <RefinedImage source={require("../assets/icons/back-arrow.png")} />
         </BackArrowContainer>
       </TouchableOpacity>
       <LoginText> Login </LoginText>
@@ -70,7 +84,11 @@ const LoginScreen = ({ navigation }) => {
             end={{ x: 1, y: 0 }}
             colors={["#667EEA", "#64B6FF"]}
           >
-            <CenteredText> Log In </CenteredText>
+            {isLoading ? (
+              <ActivityIndicator color={"white"} animating={true} />
+            ) : (
+              <CenteredText> Log In </CenteredText>
+            )}
           </MainButton>
         </TouchableOpacity>
       </ModifiedInputContainer>

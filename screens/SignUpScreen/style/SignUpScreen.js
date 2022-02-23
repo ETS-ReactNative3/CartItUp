@@ -8,8 +8,12 @@ export const BackArrowContainer = styled.View`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding-bottom: 10px;
-  padding-left: 05px;
+  padding: 5px;
+`;
+
+export const RefinedImage = styled.Image`
+  width: 30px;
+  height: 30px;
 `;
 
 export const BackArrow = styled.Text`
@@ -20,7 +24,6 @@ export const SignUpText = styled.Text`
   font-family: "Segoe-Ui";
   font-size: 30px;
   padding-left: 05px;
-  padding-top: 10px;
   color: #323232;
 `;
 
@@ -29,7 +32,6 @@ export const ModifiedInputContainer = styled.View`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 50px;
 `;
 
 export const MainButton = styled(LinearGradient)`
@@ -76,13 +78,13 @@ export const EndingSignUpLink = styled.Text`
   padding-left: 10px;
 `;
 
-export const ErrorContainer = styled.View` 
-width:100%;
-padding-left:30px;
-`
+export const ErrorContainer = styled.View`
+  width: 100%;
+  padding-left: 30px;
+`;
 
-export const ErrorText = styled.Text` 
-color:red;
-font-size: 12px;
-font-family: "Segoe-UI";
-`
+export const ErrorText = styled.Text`
+  color: red;
+  font-size: 12px;
+  font-family: "Segoe-UI";
+`;

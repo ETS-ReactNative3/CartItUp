@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   MainImproved,
   StyledText,
@@ -9,11 +9,17 @@ import {
   CenteredText,
   StyledSignUpText,
 } from "../style/MainStyles";
-import { Image, TouchableOpacity } from "react-native";
+import { Image, TouchableOpacity, ActivityIndicator } from "react-native";
 
 export const Main = ({ navigation }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const GoToLoginScreen = () => {
+    setIsLoading(true);
     navigation.navigate("LoginScreen");
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
   const GoToSignUpScreen = () => {
     navigation.navigate("SignUpScreen");
@@ -34,7 +40,11 @@ export const Main = ({ navigation }) => {
           end={{ x: 1, y: 0 }}
           colors={["#667EEA", "#64B6FF"]}
         >
-          <CenteredText> Log In </CenteredText>
+          {isLoading ? (
+            <ActivityIndicator color={"white"} animating={true} />
+          ) : (
+            <CenteredText> Log In </CenteredText>
+          )}
         </MainButton>
       </TouchableOpacity>
       <TouchableOpacity onPress={GoToSignUpScreen}>

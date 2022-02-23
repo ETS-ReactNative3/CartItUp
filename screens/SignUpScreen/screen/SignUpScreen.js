@@ -1,9 +1,13 @@
-import React, { useState , useEffect } from "react";
-import { TouchableOpacity, ToastAndroid } from "react-native";
+import React, { useState, useEffect } from "react";
+import {
+  TouchableOpacity,
+  ToastAndroid,
+  ActivityIndicator,
+} from "react-native";
 import {
   SignupScreenMainView,
   BackArrowContainer,
-  BackArrow,
+  RefinedImage,
   SignUpText,
   ModifiedInputContainer,
   MainButton,
@@ -22,20 +26,24 @@ const SignUpScreen = ({ navigation }) => {
   const [email, setEmail] = useState(null);
   const [name, setName] = useState(null);
   const [password, setPassword] = useState(null);
-
+  const [isLoading, setIsLoading] = useState(false);
 
   const GoToMainScreen = () => {
+    setIsLoading(false);
     navigation.navigate("Main");
   };
   const GoToLoginScreen = () => {
+    setIsLoading(false);
     navigation.navigate("LoginScreen");
   };
 
   const createUser = () => {
     if (email && name && password && password.length > 6) {
+      setIsLoading(true)
       auth()
         .createUserWithEmailAndPassword(email, password)
         .then(() => auth().currentUser.updateProfile({ displayName: name }))
+        .then(() => setIsLoading(false))
         .catch((err) =>
           ToastAndroid.show(` An Error Occured! Please Check ${err.code}`, 2000)
         );
@@ -50,7 +58,7 @@ const SignUpScreen = ({ navigation }) => {
     <SignupScreenMainView>
       <TouchableOpacity onPress={GoToMainScreen}>
         <BackArrowContainer>
-          <BackArrow>&#8592;</BackArrow>
+          <RefinedImage source={require("../assets/icons/back-arrow.png")} />
         </BackArrowContainer>
       </TouchableOpacity>
       <SignUpText> Signup </SignUpText>
@@ -89,7 +97,11 @@ const SignUpScreen = ({ navigation }) => {
             end={{ x: 1, y: 0 }}
             colors={["#667EEA", "#64B6FF"]}
           >
-            <CenteredText> Sign Up </CenteredText>
+            {isLoading ? (
+              <ActivityIndicator color={"white"} animating={true} />
+            ) : (
+              <CenteredText> Log In </CenteredText>
+            )}
           </MainButton>
         </TouchableOpacity>
       </ModifiedInputContainer>
