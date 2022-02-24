@@ -3,6 +3,8 @@ import LinearGradient from "react-native-linear-gradient";
 
 export const SignupScreenMainView = styled.View`
   flex: 1;
+  background-color: #1b1b1b;
+
 `;
 export const BackArrowContainer = styled.View`
   display: flex;
@@ -24,7 +26,7 @@ export const SignUpText = styled.Text`
   font-family: "Segoe-Ui";
   font-size: 30px;
   padding-left: 05px;
-  color: #323232;
+  color: #fff;
 `;
 
 export const ModifiedInputContainer = styled.View`
@@ -64,14 +66,14 @@ export const EndingText = styled.Text`
   align-items: flex-end;
   font-family: "Segoe-UI";
   text-align: center;
-  color: #323232;
+  color: #fff;
   font-size: 16px;
   padding-bottom: 15px;
 `;
 
 export const EndingSignUpLink = styled.Text`
   text-align: center;
-  color: #323232;
+  color: #fff;
   font-family: "Segoe-UI";
   font-weight: bold;
   font-size: 16px;

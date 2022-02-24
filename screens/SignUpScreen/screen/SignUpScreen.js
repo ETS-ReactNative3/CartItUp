@@ -70,6 +70,7 @@ const SignUpScreen = ({ navigation }) => {
       <ModifiedInputContainer>
         <TextInput
           onChangeText={(e) => setName(e)}
+          textInputStyle={{backgroundColor:"#1b1b1b" , borderColor:"#fff" , color:"#fff"}}
           placeholder="Name"
           value={name}
         />
@@ -77,7 +78,11 @@ const SignUpScreen = ({ navigation }) => {
           {!name && <ErrorText> &#9888; Please Enter Your Name </ErrorText>}
         </ErrorContainer>
         <Spacer />
-        <TextInput onChangeText={(e) => setEmail(e)} value={email} />
+        <TextInput
+          textInputStyle={{backgroundColor:"#1b1b1b" , borderColor:"#fff" , color:"#fff"}}
+          onChangeText={(e) => setEmail(e)}
+          value={email}
+        />
         <ErrorContainer>
           {!email && <ErrorText> &#9888; Please Enter Your Email </ErrorText>}
         </ErrorContainer>
@@ -88,6 +93,7 @@ const SignUpScreen = ({ navigation }) => {
           onChangeText={(e) => setPassword(e)}
           value={password}
           secureTextEntry={true}
+          textInputStyle={{backgroundColor:"#1b1b1b" , borderColor:"#fff" , color:"#fff"}}
         />
         <ErrorContainer>
           {!password && (

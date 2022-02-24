@@ -3,6 +3,8 @@ import LinearGradient from "react-native-linear-gradient";
 
 export const LoginScreenMainView = styled.View`
   flex: 1;
+  background-color: #1b1b1b;
+
 `;
 export const BackArrowContainer = styled.View`
   display: flex;
@@ -20,11 +22,11 @@ export const BackArrow = styled.Text`
   color: black;
 `;
 export const LoginText = styled.Text`
-  font-family: "Segoe-Ui";
+  font-family: "Segoe-UI";
   font-size: 30px;
   padding-left: 05px;
   padding-top: 10px;
-  color: #323232;
+  color: #fff;
 `;
 
 export const ModifiedInputContainer = styled.View`
@@ -45,7 +47,6 @@ export const MainButton = styled(LinearGradient)`
 export const CenteredText = styled.Text`
   text-align: center;
   font-family: "Segoe-UI";
-
   color: #ffffff;
   font-size: 16px;
 `;
@@ -66,14 +67,14 @@ export const EndingText = styled.Text`
   align-items: flex-end;
   font-family: "Segoe-UI";
   text-align: center;
-  color: #323232;
+  color: #fff;
   font-size: 16px;
   padding-bottom: 15px;
 `;
 
 export const EndingSignUpLink = styled.Text`
   text-align: center;
-  color: #323232;
+  color: #fff;
   font-family: "Segoe-UI";
   font-weight: bold;
   font-size: 16px;

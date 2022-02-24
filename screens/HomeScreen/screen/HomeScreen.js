@@ -1,7 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Text, View, Button, TouchableOpacity } from "react-native";
+import {
+  TextInput,
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+  FlatList,
+} from "react-native";
 import auth from "@react-native-firebase/auth";
 import firestore from "@react-native-firebase/firestore";
+import {
+  CenteredDiv,
+  NotFoundText,
+  MainHomeView,
+  HomeMainHeaderView,
+  HalfHeader,
+  FilterImg,
+  CartImg,
+  SearchBarContainer,
+  SearchBar,
+  CategoryContainer,
+  ImgBack,
+  TextImgBack,
+  GradientImgBack,
+} from "../style/HomeScreenStyles";
+import { Data } from "../utils/FlatListData";
 
 const HomeScreen = () => {
   const [user, setUser] = useState(null);
@@ -11,7 +35,7 @@ const HomeScreen = () => {
   useEffect(() => {
     auth().onAuthStateChanged((us) => {
       setUser(us);
-      if ( us!== null) {
+      if (us !== null) {
         setuserName(us.displayName);
       } else {
         setuserName("Not Found");
@@ -19,43 +43,67 @@ const HomeScreen = () => {
     });
 
     firestore()
-      .collection("AllProducts")
-      .doc("Clothing")
-      .collection("Main")
+      .collection("All_Products")
       .get()
       .then((data) => {
         setClothingData(data.docs);
       });
   }, []);
 
-  const SignOut = () => {
-    return auth().signOut();
+  const renderItems = ({ item }) => {
+    return (
+      <View>
+        <ImgBack source={item.Image}>
+          <GradientImgBack
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 0 }}
+            colors= {[item.Colors1 , item.Colors2 ]}
+          >
+            <TextImgBack> {item.Name} </TextImgBack>
+          </GradientImgBack>
+        </ImgBack>
+      </View>
+    );
   };
+
   return (
-    <View style={{ flex: 1 }}>
+    <MainHomeView>
       {user ? (
-        <View style={{ flex: 1 }}>
-          <Text>HomeScreen</Text>
-          <Text>{userName ? userName : "Loading..."}</Text>
-          <Text>
-            {clothingData && user
-              ? clothingData.map((e) => {
-                  return (
-                    <View style={{ flex: 1, padding: 20 }}>
-                      <Text>{e._data.Name}</Text>
-                    </View>
-                  );
-                })
-              : "Loading..."}
-          </Text>
-          <TouchableOpacity>
-            <Button title="Sign Out" onPress={SignOut} />
-          </TouchableOpacity>
-        </View>
+        <MainHomeView>
+          <HomeMainHeaderView style={{ elevation: 1 }}>
+            <TouchableOpacity>
+              <Image source={require("../assets/icons/Menu-Bar.png")} />
+            </TouchableOpacity>
+            <HalfHeader>
+              <TouchableOpacity>
+                <CartImg
+                  source={require("../assets/icons/shopping-cart.png")}
+                />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <FilterImg source={require("../assets/icons/filter.png")} />
+              </TouchableOpacity>
+            </HalfHeader>
+          </HomeMainHeaderView>
+          <SearchBarContainer style={{ elevation: 2 }}>
+            <SearchBar
+              inlineImageLeft="search_icon"
+              inlineImagePadding={40}
+              placeholder="Search Anything"
+              placeholderTextColor="rgba(256,256,256,0.4)"
+            />
+          </SearchBarContainer>
+          <CategoryContainer>
+            <FlatList data={Data} horizontal={true} renderItem={renderItems} />
+          </CategoryContainer>
+        </MainHomeView>
       ) : (
-       <Text>" Loading .... "</Text>
+        <ImageBackground
+          style={{ flex: 1 }}
+          source={require("../assets/images/404.jpg")}
+        />
       )}
-    </View>
+    </MainHomeView>
   );
 };
 

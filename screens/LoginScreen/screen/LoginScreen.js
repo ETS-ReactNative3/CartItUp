@@ -61,7 +61,15 @@ const LoginScreen = ({ navigation }) => {
       </TouchableOpacity>
       <LoginText> Login </LoginText>
       <ModifiedInputContainer>
-        <TextInput onChangeText={(e) => setEmail(e)} value={email} />
+        <TextInput
+          textInputStyle={{
+            backgroundColor: "#1b1b1b",
+            borderColor: "#fff",
+            color: "#fff",
+          }}
+          onChangeText={(e) => setEmail(e)}
+          value={email}
+        />
         <ErrorContainer>
           {!email && <ErrorText> &#9888; Please Enter Your Email </ErrorText>}
         </ErrorContainer>
@@ -72,6 +80,11 @@ const LoginScreen = ({ navigation }) => {
           onChangeText={(e) => setPassword(e)}
           value={password}
           secureTextEntry={true}
+          textInputStyle={{
+            backgroundColor: "#1b1b1b",
+            borderColor: "#fff",
+            color: "#fff",
+          }}
         />
         <ErrorContainer>
           {!password && (

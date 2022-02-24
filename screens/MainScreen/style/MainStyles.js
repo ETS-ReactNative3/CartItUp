@@ -6,21 +6,21 @@ flex:1;
 display:flex;
 align-items: center;
 padding-top:50px;
-background-color: #ffffff;
+background-color: #1b1b1b;
 `
 
 export const StyledText = styled.Text`
 font-family: 'Segoe-UI';
 font-size: 20px;
 font-weight: 100;
-color:#323232;
+color:#fff;
 
 `
 export const StyledTextBolded = styled.Text`
 font-family: 'Segoe-UI';
 font-size: 22px;
 font-weight: bold;
-color:#323232;
+color:#fff;
 `
 
 export const StyledTextPadded = styled.Text`
@@ -28,7 +28,7 @@ font-family: 'Segoe-UI';
 font-size: 20px;
 font-weight: 100;
 padding-top: 10px;
-color:#323232;
+color:#fff;
 `
 
 export const MainImgContainer = styled.View` 
@@ -58,5 +58,5 @@ font-family: 'Segoe-UI';
 font-size: 16px;
 font-weight: 100;
 padding-bottom: 40px;
-color:#323232;
+color:#fff;
 `
