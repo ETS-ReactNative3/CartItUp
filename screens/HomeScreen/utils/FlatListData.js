@@ -8,13 +8,13 @@ export const Data = [
     { 
         Name:"Man",
         Image:require("../assets/images/img2.png"),
-        Colors1:"##FF5858",
-        Colors2:"##FB5895"
+        Colors1:"#FF5858",
+        Colors2:"#FB5895"
     },
     { 
         Name:"Kids",
         Image:require("../assets/images/img3.png"),
-        Colors1:"##43E97B",
-        Colors2:"##38F9D7"
+        Colors1:"#43E97B",
+        Colors2:"#38F9D7"
     }
  ]

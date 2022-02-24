@@ -46,12 +46,22 @@ border-radius: 7px;
 export const SearchBar = styled.TextInput` 
 width:100%;
 color: rgba(256,256,256,0.4);
+font-family: "Segoe-UI";
+
 
 
 `
 
 export const CategoryContainer = styled.View` 
 padding:20px;
+
+
+`
+export const CategoryText = styled.Text` 
+padding:0px 10px 20px;
+color:#fff;
+font-family: "Segoe-UI";
+font-size: 25px;
 
 `
 
@@ -62,11 +72,11 @@ margin:10px;
 display: flex;
 justify-content: center;
 align-items: center;
-border-radius: 12px;
 `
 
 export const TextImgBack = styled.Text` 
 color:#fff;
+font-family: "Segoe-UI";
 `
 
 export const GradientImgBack = styled(LinearGradient)`
@@ -76,6 +86,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 opacity:0.5;
+border-radius: 12px;
 `
 
 export const CenteredDiv = styled.View` 
@@ -83,10 +94,4 @@ flex:1;
 display: flex;
 justify-content: center;
 align-items: center;
-`
-
-export const NotFoundText = styled.Text` 
-font-size: 30px;
-color:red;
-font-family: 'Segoe-UI';
 `

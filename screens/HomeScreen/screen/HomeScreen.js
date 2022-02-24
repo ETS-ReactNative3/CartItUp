@@ -24,6 +24,7 @@ import {
   ImgBack,
   TextImgBack,
   GradientImgBack,
+  CategoryText,
 } from "../style/HomeScreenStyles";
 import { Data } from "../utils/FlatListData";
 
@@ -52,17 +53,17 @@ const HomeScreen = () => {
 
   const renderItems = ({ item }) => {
     return (
-      <View>
-        <ImgBack source={item.Image}>
+      <TouchableOpacity>
+        <ImgBack imageStyle={{borderRadius:12}} source={item.Image}>
           <GradientImgBack
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 0 }}
-            colors= {[item.Colors1 , item.Colors2 ]}
+            colors={[item.Colors1, item.Colors2]}
           >
             <TextImgBack> {item.Name} </TextImgBack>
           </GradientImgBack>
         </ImgBack>
-      </View>
+      </TouchableOpacity>
     );
   };
 
@@ -94,6 +95,7 @@ const HomeScreen = () => {
             />
           </SearchBarContainer>
           <CategoryContainer>
+            <CategoryText> Categories </CategoryText>
             <FlatList data={Data} horizontal={true} renderItem={renderItems} />
           </CategoryContainer>
         </MainHomeView>
